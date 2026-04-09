@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fahed Al Ashi - Digital Business Card</title>
-    <!-- Importing Elegant Fonts: Great Vibes for the 'B' script, Playfair for Serif, Montserrat for Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap)" rel="stylesheet">
     
     <style>
         :root {
-            /* Color Palette extracted from the PDF */
             --bg-dark: #2a2a2a;
             --bg-card: #333333;
             --gold-primary: #C8A97E;
@@ -36,6 +35,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            padding-bottom: 100px; /* Space for the fixed footer */
             color: var(--text-light);
         }
 
@@ -48,6 +48,8 @@
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(200, 169, 126, 0.1);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Top Brand Section */
@@ -58,7 +60,6 @@
             border-bottom: 1px solid rgba(200, 169, 126, 0.2);
         }
 
-        /* Subtle background pattern/gradient for the header */
         .brand-header::before {
             content: '';
             position: absolute;
@@ -67,33 +68,43 @@
             pointer-events: none;
         }
 
-        /* The signature "B" logo from the PDF */
+        /* Brand Logo */
         .logo-b {
-            font-family: 'Great Vibes', cursive;
-            font-size: 110px;
-            line-height: 0.8;
-            color: var(--gold-primary);
-            text-shadow: -3px 3px 0px var(--burgundy);
-            margin-bottom: 10px;
-            font-weight: 400;
+            width: 180px;
+            height: 180px;
+            background-color: transparent;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            letter-spacing: 4px;
-            color: var(--gold-primary);
-            text-transform: uppercase;
-            margin-top: 15px;
+        .logo-b img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
-        .brand-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            letter-spacing: 6px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            margin-top: 5px;
+        /* Circular Photo Container */
+        .photo-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 20px auto 30px auto;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Profile Details Section */
@@ -127,6 +138,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            padding-bottom: 18px;
         }
 
         .contact-item {
@@ -181,14 +193,26 @@
         }
 
         .contact-value {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.5px;
         }
 
-        /* Action Buttons */
-        .action-section {
-            padding: 0 30px 35px; margin-top: 18px;
+        /* Floating Action Button Container */
+        .fixed-action-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 420px;
+            padding: 0 30px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .fixed-action-container button {
+            pointer-events: auto;
         }
 
         .btn-save {
@@ -208,107 +232,35 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(200, 169, 126, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 169, 126, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
             filter: brightness(1.1);
         }
-
     </style>
 </head>
 <body>
 
     <div class="card-container">
         
-        <!-- Branding Header -->
         <header class="brand-header">
            <div class="logo-b">
-    <img src="BHlogo.svg" alt="Logo" style="width: 100%; height: auto; display: block;">
-</div>
+                <img src="BHlogo.svg" alt="Logo">
+           </div>
         </header>
 
-        <!-- Profile & Info -->
         <main class="profile-section">
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circular Photo Container</title>
-    <style>
-        /* This is the CSS for the container */
-        .photo-container {
-            /* 1. Essential: Make it a square */
-            width: 200px;  /* You can change this size */
-            height: 200px; /* Must match the width */
-
-            /* 2. Essential: Make it a circle */
-            border-radius: 50%;
-
-            /* 3. Essential: Hide any parts of the photo that don't fit */
-            overflow: hidden;
-
-            /* Optional: Centering and styling */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 5px solid white; /* Adds a nice border */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a soft shadow */
-            margin: 50px auto; /* Centers the container on the page */
-        }
-
-        /* This styles the actual image inside the container */
-        .photo-container img {
-            /* Essential: Ensure the image fills the container */
-            width: 100%;
-            height: 100%;
-
-            /* Essential: Prevents the image from stretching if it's not a square */
-            object-fit: cover; 
-
-            /* If the photo needs slight repositioning, use object-position */
-            /* object-position: center top; */
-        }
-.logo-b {
-    /* Set exact size */
-    width: 200px;
-    height: 200px;
-    
-    /* Make it a circle */
-    border-radius: 50%;
-    
-    /* Ensure the image stays inside the circle */
-    overflow: hidden;
-    
-    /* THE UPDATES: */
-    background-color: transparent; /* Makes the circle container see-through */
-    margin: 20px auto;            /* Centers the container horizontally */
-    
-    /* Keep the centering for the SVG inside */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-b img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Keeps your logo from stretching */
-    padding: 10px;       /* Adjust this if you want the logo bigger or smaller */
-    box-sizing: border-box;
-}
- </style>
-</head>
-<body>
-
-    <div class="photo-container">
-        <img src="Fahed.jpg" alt="User Photo">
-    </div>
+            <div class="photo-container">
+                <img src="Fahed.jpg" alt="Fahed Al Ashi">
+            </div>
+            
             <h1 class="profile-name">Fahed Al Ashi</h1>
             <h2 class="profile-title">Business Analyst</h2>
 
             <ul class="contact-list">
-                <!-- Mobile Phone -->
                 <li>
                     <a href="tel:+962796996955" class="contact-item">
                         <div class="contact-icon">
@@ -321,9 +273,6 @@
                     </a>
                 </li>
 
-              
-
-                <!-- Personal Email -->
                 <li>
                     <a href="mailto:fahed@bristolamman.com" class="contact-item">
                         <div class="contact-icon">
@@ -335,7 +284,7 @@
                         </div>
                     </a>
                 </li>
-  <!-- Telephone -->
+                
                 <li>
                     <a href="tel:+96265923400" class="contact-item">
                         <div class="contact-icon">
@@ -347,7 +296,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- Hotel Email -->
+                
                 <li>
                     <a href="mailto:bristol@bristolamman.com" class="contact-item">
                         <div class="contact-icon">
@@ -360,7 +309,6 @@
                     </a>
                 </li>
 
-                <!-- Website -->
                 <li>
                     <a href="https://www.bristolamman.com" target="_blank" rel="noopener noreferrer" class="contact-item">
                         <div class="contact-icon">
@@ -368,52 +316,18 @@
                         </div>
                         <div class="contact-text-wrap">
                             <span class="contact-label">Website</span>
-                            <span class="contact-value">www.bristolamman.com</span>
+                            <span class="contact-value">bristolamman.com</span>
                         </div>
                     </a>
                 </li>
             </ul>
         </main>
-
-        <!-- Save Contact Button -->
-       <div class="action-section">
-    <a href="fahed.vcf" download="fahed_contact" style="text-decoration: none; display:">
-        <button class="btn-save">Save Contact</button>
-    </a>
-</div>
+    </div> 
+    
+    <div class="fixed-action-container">
+            <a href="fahed.vcf" download="fahed_contact" style="text-decoration: none;">
+            <button class="btn-save">Save Contact</button>
+        </a>
     </div>
-
-    <script>
-        // Function to dynamically generate and download a standard .vcf file
-        function downloadVCard() {
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-N:Al Ashi;Fahed;;;
-FN:Fahed Al Ashi
-ORG:Bristol Hotel
-TITLE:Business Analyst
-TEL;TYPE=WORK,VOICE:+962 6 5923400
-TEL;TYPE=CELL,VOICE:+962 796996955
-EMAIL;TYPE=PREF,INTERNET:fahed@bristolamman.com
-EMAIL;TYPE=INTERNET:bristol@bristolamman.com
-URL:https://www.bristolamman.com
-END:VCARD`;
-
-            // Create a Blob containing the vCard data
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-            
-            // Create a temporary link element to trigger the download
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'Fahed_Al_Ashi.vcf');
-            
-            // Append to body, click, and clean up
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-        }
-    </script>
 </body>
 </html>
