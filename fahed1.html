@@ -223,7 +223,12 @@
 
     <div class="card-container">
         
-
+        <!-- Branding Header -->
+        <header class="brand-header">
+           <div class="logo-b">
+    <img src="Blogo.svg" alt="Logo" style="width: 50%; height: auto; display: block;">
+</div>
+        </header>
 
         <!-- Profile & Info -->
         <main class="profile-section">
@@ -264,15 +269,40 @@
             /* If the photo needs slight repositioning, use object-position */
             /* object-position: center top; */
         }
+.logo-b {
+    /* Set exact size */
+    width: 200px;
+    height: 200px;
+    
+    /* Make it a circle */
+    border-radius: 50%;
+    
+    /* Ensure the image stays inside the circle */
+    overflow: hidden;
+    
+    /* THE UPDATES: */
+    background-color: transparent; /* Makes the circle container see-through */
+    margin: 20px auto;            /* Centers the container horizontally */
+    
+    /* Keep the centering for the SVG inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
+.logo-b img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps your logo from stretching */
+    padding: 10px;       /* Adjust this if you want the logo bigger or smaller */
+    box-sizing: border-box;
+}
  </style>
 </head>
 <body>
 
     <div class="photo-container">
-        <img src="BFahed.jgp" alt="User Photo">
+        <img src="Fahed.jgp" alt="User Photo">
     </div>
             <h1 class="profile-name">Fahed Al Ashi</h1>
             <h2 class="profile-title">Business Analyst</h2>
